@@ -763,7 +763,7 @@ function ansOrder(b){
     const s=$("s"+i); s.classList.add("filled"); s.querySelector(".st").textContent = run.q.items[i];
     b.remove(); run.next++;
     if(run.next===run.q.items.length) finishQ(run.mist<=1);
-  } else { run.mist++; sfx.bad(); b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); }
+  } else { run.mist++; sfx.bad(); app.querySelectorAll(".chip.shake").forEach(x=>x.classList.remove("shake")); void b.offsetWidth; b.classList.add("shake"); }
 }
 function ansMatch(b, side){
   if(run.done || b.classList.contains("done")) return;
@@ -779,7 +779,7 @@ function ansMatch(b, side){
     if(run.matched===run.q.pairs.length) finishQ(run.mist<=1);
   } else {
     run.mist++; sfx.bad();
-    b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake");
+    app.querySelectorAll(".mbtn.shake").forEach(x=>x.classList.remove("shake")); void b.offsetWidth; b.classList.add("shake");
   }
 }
 function showSortItem(){
